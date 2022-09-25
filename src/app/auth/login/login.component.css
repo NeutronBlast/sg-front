@@ -1,0 +1,37 @@
+.promotion-col {
+  background-color: #FF6E0B;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Ipads and tablets */
+@media (max-width: 992px){
+  .promotion-col {
+    display: none;
+  }
+
+  .mr-25{
+    margin-right: 30px;
+  }
+}
+
+/* PCs */
+@media (min-width: 992px){
+  .mr-25{
+    margin-right: 60px;
+  }
+}
+
+.fill {
+  display: block;
+  width: 80%;
+  height: 26px;
+  font-size: 1em;
+}
+
+.login-col {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
