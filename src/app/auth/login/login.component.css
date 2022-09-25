@@ -21,6 +21,12 @@
   .mr-25{
     margin-right: 60px;
   }
+
+  .login-col {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .fill {
@@ -30,8 +36,4 @@
   font-size: 1em;
 }
 
-.login-col {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+
