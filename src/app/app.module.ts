@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from "./auth/auth.module";
 import { CoreModule } from "./core/core.module";
 import { ParticipantModule } from "./participant/participant.module";
+import { AdminModule } from "./admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ParticipantModule } from "./participant/participant.module";
     CoreModule,
     AuthModule,
     ParticipantModule,
+    AdminModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],

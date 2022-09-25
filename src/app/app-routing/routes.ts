@@ -7,6 +7,10 @@ export const routes: Routes = [
     loadChildren: () => import('../auth/auth.module').then(e => e.AuthModule)
   },
   {
+    path: 'admin',
+    loadChildren: () => import('../admin/admin.module').then(e => e.AdminModule)
+  },
+  {
     path: 'welcome',
     component: WelcomeComponent
   }
