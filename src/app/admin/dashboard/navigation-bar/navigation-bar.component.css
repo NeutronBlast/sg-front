@@ -1,0 +1,16 @@
+.sg-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar {
+  background: lightgrey;
+  color: rgba(0,0,0,.87);
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+

@@ -10,6 +10,9 @@ import { MatTableModule } from "@angular/material/table";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSelectModule } from "@angular/material/select";
+import { MatDialogModule, MatDialogRef } from "@angular/material/dialog";
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 const ANGULAR_MATERIAL_MODULES = [
   CommonModule,
@@ -22,7 +25,10 @@ const ANGULAR_MATERIAL_MODULES = [
   MatTableModule,
   MatGridListModule,
   MatIconModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDialogModule,
+  MatSlideToggleModule,
+  MatToolbarModule
 ];
 
 @NgModule({
@@ -32,6 +38,12 @@ const ANGULAR_MATERIAL_MODULES = [
   ],
   exports: [
     ...ANGULAR_MATERIAL_MODULES
+  ],
+  providers: [
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    }
   ]
 })
 export class AngularMaterialModule { }

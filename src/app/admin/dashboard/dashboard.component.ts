@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {AddParticipantComponent} from "./add-participant/add-participant.component";
+import {EditParticipantComponent} from "./edit-participant/edit-participant.component";
+import {
+  DeleteParticipantConfirmationComponent
+} from "./delete-participant-confirmation/delete-participant-confirmation.component";
+import {
+  DisableParticipantConfirmationComponent
+} from "./disable-participant-confirmation/disable-participant-confirmation.component";
 
 export interface User {
   name: string;
@@ -20,12 +29,40 @@ const ELEMENT_DATA: User[] = [
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+
+
 export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
   dataSource = ELEMENT_DATA;
-  constructor() { }
+  constructor(public dialog: MatDialog) {
+
+  }
 
   ngOnInit(): void {
   }
 
+  openDialog() {
+    this.dialog.open(AddParticipantComponent, {
+      width: '600px',
+    })
+  }
+
+  openDialogEdit() {
+    this.dialog.open(EditParticipantComponent, {
+      width: '600px',
+    })
+  }
+
+  deleteConfirmation() {
+    this.dialog.open(DeleteParticipantConfirmationComponent, {
+      width: '400px',
+    })
+  }
+
+  disableConfirmation() {
+    this.dialog.open(DisableParticipantConfirmationComponent, {
+      width: '400px',
+    })
+  }
 }
