@@ -4,8 +4,12 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatMomentDateModule} from "@angular/material-moment-adapter";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { MatTableModule } from "@angular/material/table";
+import { MatGridListModule } from "@angular/material/grid-list";
+import { MatIconModule } from "@angular/material/icon";
+import { MatSelectModule } from "@angular/material/select";
 
 const ANGULAR_MATERIAL_MODULES = [
   CommonModule,
@@ -14,7 +18,11 @@ const ANGULAR_MATERIAL_MODULES = [
   MatInputModule,
   MatButtonModule,
   MatMomentDateModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  MatTableModule,
+  MatGridListModule,
+  MatIconModule,
+  MatSelectModule
 ];
 
 @NgModule({
