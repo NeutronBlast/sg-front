@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ParticipationsService } from "../../../core/participations/participations.service";
+import { User } from "../../../core/classes/user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-participant',
@@ -41,7 +44,9 @@ export class AddParticipantComponent implements OnInit {
   };
 
   constructor(public dialogRef: MatDialogRef<any>,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private router: Router,
+              private pS: ParticipationsService) {
     this.createForm();
     this.loading = false;
   }
@@ -118,6 +123,27 @@ export class AddParticipantComponent implements OnInit {
           }
         }
       }
+    }
+  }
+
+  onSubmit(){
+    if (this.participantForm.valid){
+      let data: User = new User();
+      data.first_name = this.participantForm.value.first_name;
+      data.last_name = this.participantForm.value.last_name;
+      data.email = this.participantForm.value.email;
+      data.password = this.participantForm.value.password;
+      data.date_of_birth = this.participantForm.value.date_of_birth.format('YYYY-MM-DD');
+
+      this.pS.postParticipants(data).subscribe({
+        next: () => {
+          this.dialogRef.close();
+          window.location.reload();
+        },
+        error: err => {
+          console.log(err.error.errors.email[0])
+        }
+      })
     }
   }
 
