@@ -1,6 +1,8 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
+import { ParticipationsService } from "./participations/participations.service";
+import {environment} from "../../environments/environment.dev";
 
 
 
@@ -9,6 +11,10 @@ import { HttpClientModule } from "@angular/common/http";
   imports: [
     CommonModule,
     HttpClientModule
+  ],
+  providers: [
+    ParticipationsService,
+    {provide: 'serverURL', useValue: environment.apiURL}
   ]
 })
 export class CoreModule {
@@ -19,4 +25,6 @@ export class CoreModule {
       );
     }
   }
+
+  serverURL = environment.apiURL;
 }
