@@ -39,8 +39,7 @@ export class AddParticipantComponent implements OnInit {
     },
     password: {
       required: 'Password is required',
-      pattern: 'Password should contain at least 8 characters, one letter (lowercase and uppercase)' +
-        'one number and one special character'
+      pattern: 'Password format must be valid'
     }
   };
 

@@ -4,30 +4,18 @@
       <img src="assets/img/1200x600.png" width="220">
     </div>
 
-    <form *ngIf="!loading" fxLayout="column" fxLayoutAlign="center center" fxFill [formGroup]="participantForm">
+    <form *ngIf="!loading" novalidate fxLayout="column" fxLayoutAlign="center center" fxFill [formGroup]="participantForm">
       <mat-form-field fxFlex class="fill mb-50" appearance="outline">
         <input matInput placeholder="Email" formControlName="email">
       </mat-form-field>
-
-      <div fxFlex fxFlexAlign="center" class="mt-10-i">
-        <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
-      </div>
 
       <mat-form-field fxFlex class="fill mb-50" appearance="outline">
         <input matInput placeholder="First Name" formControlName="first_name">
       </mat-form-field>
 
-      <div fxFlex fxFlexAlign="center" class="mt-10-i">
-        <mat-error *ngIf="formErrors.first_name">{{formErrors.first_name}}</mat-error>
-      </div>
-
       <mat-form-field fxFlex class="fill mb-50" appearance="outline">
         <input matInput placeholder="Family Name" formControlName="last_name">
       </mat-form-field>
-
-      <div fxFlex fxFlexAlign="center" class="mt-10-i">
-        <mat-error *ngIf="formErrors.last_name">{{formErrors.last_name}}</mat-error>
-      </div>
 
       <mat-form-field fxFlex class="fill mb-50" appearance="outline">
         <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="date_of_birth">
@@ -36,19 +24,26 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <mat-form-field fxFlex class="fill mb-50" appearance="outline">
+      <mat-form-field fxFlex class="fill mb-100" appearance="outline">
         <input matInput placeholder="Password" type="password" formControlName="password">
+        <mat-hint>Password should contain at least 8 characters, one lowercase letter, one uppercase letter,
+          one number, and one special character</mat-hint>
       </mat-form-field>
 
-      <div fxFlex fxFlexAlign="center" class="mt-10-i">
-        <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
-      </div>
     </form>
   </div>
 
+  <div dir="ltr" *ngIf="participantForm && (!participantForm.valid && participantForm.dirty)">
+    <h5>ERRORS: <br *ngIf="formErrors.email">{{formErrors.email}}
+      <br *ngIf="formErrors.first_name">{{formErrors.first_name}}
+      <br *ngIf="formErrors.last_name">{{formErrors.last_name}}
+      <br *ngIf="formErrors.password">
+      {{formErrors.password}}</h5>
+  </div>
+
   <div mat-dialog-actions fxLayout="row">
-    <button mat-flat-button cdkFocusInitial fxFlex (click)="onSubmit()">Submit</button>
-    <button mat-flat-button mat-dialog-close fxFlex>Close</button>
+    <button mat-flat-button cdkFocusInitial fxFlex (click)="onSubmit()" class="submit">Submit</button>
+    <button mat-flat-button mat-dialog-close fxFlex class="close">Close</button>
   </div>
   <br>
 </div>

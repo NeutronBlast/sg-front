@@ -65,9 +65,7 @@ html, body {
   background-color: rgba(255, 110, 11, 0.3);
 }
 
-#sg .mat-toolbar-row, .mat-toolbar-single-row{
-
-}
+.mat-cell, .mat-header-cell { overflow: hidden; text-overflow: ellipsis; word-break: break-word; }
 
 /* Margin */
 
@@ -99,6 +97,10 @@ html, body {
   margin-bottom: 75px;
 }
 
+.mb-100 {
+  margin-bottom: 100px;
+}
+
 .container
 {
   padding-right: 10px;
@@ -107,10 +109,17 @@ html, body {
   margin-left: auto;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container
   {
     width: 750px;
+  }
+
+  .panel {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100%;
+    height: 100%;
   }
 }
 @media (min-width: 992px) {
@@ -118,11 +127,23 @@ html, body {
   {
     width: 970px;
   }
+
+  .panel {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100%;
+    height: 100%;
+  }
 }
 @media (min-width: 1200px) {
   .container
   {
     width: 1170px;
+  }
+
+  .panel {
+    width: 40%;
+    height: 85%;
   }
 
   .container-2
@@ -191,4 +212,14 @@ form {
   position: relative;
   top: 35%;
   transform: translate(0, -35%);
+}
+
+.submit {
+  color: white;
+  background-color: rgba(255, 110, 11, 0.8);
+}
+
+.close {
+  color: white;
+  background-color: rgba(29, 33, 51, 0.8);
 }

@@ -38,13 +38,13 @@ export class DashboardComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(AddParticipantComponent, {
-      width: '600px',
+      panelClass: 'panel'
     })
   }
 
   openDialogEdit(id: number) {
     this.dialog.open(EditParticipantComponent, {
-      width: '600px',
+      panelClass: 'panel',
       data: {
         id: id
       }
