@@ -51,15 +51,22 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  deleteConfirmation() {
+  deleteConfirmation(id: number) {
     this.dialog.open(DeleteParticipantConfirmationComponent, {
       width: '400px',
+      data: {
+        id: id
+      }
     })
   }
 
-  disableConfirmation() {
+  disableConfirmation(id: number, status: string) {
     this.dialog.open(DisableParticipantConfirmationComponent, {
       width: '400px',
+      data: {
+        id: id,
+        status: status
+      }
     })
   }
 }

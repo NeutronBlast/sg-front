@@ -37,4 +37,18 @@ export class ParticipationsService {
 
     return this.http.put<any>(environment.apiURL + '/users/' + data.id, data, httpOptions);
   }
+
+  deleteParticipants(id: any): Observable<any> {
+    return this.http.delete<any>(environment.apiURL + '/users/' + id);
+  }
+
+  changeStatusParticipant(data: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+    };
+
+    return this.http.put<any>(environment.apiURL + '/users/disable/' + data.id, data, httpOptions);
+  }
 }

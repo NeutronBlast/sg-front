@@ -47,11 +47,14 @@
             <button mat-icon-button (click)="openDialogEdit(row.id)">
               <mat-icon>create</mat-icon>
             </button>
-            <button mat-icon-button (click)="deleteConfirmation()">
+            <button mat-icon-button (click)="deleteConfirmation(row.id)">
               <mat-icon>delete</mat-icon>
             </button>
-            <button mat-icon-button (click)="disableConfirmation()">
+            <button mat-icon-button *ngIf="row.status == 'Active'" (click)="disableConfirmation(row.id, 'Inactive')">
               <mat-icon>power_off</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="row.status == 'Inactive'" (click)="disableConfirmation(row.id, 'Active')">
+              <mat-icon>power_on</mat-icon>
             </button>
           </td>
         </ng-container>

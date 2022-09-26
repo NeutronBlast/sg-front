@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { ParticipationsService } from "../../../core/participations/participations.service";
 
 @Component({
   selector: 'app-delete-participant-confirmation',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteParticipantConfirmationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<any>,
+    private pS: ParticipationsService,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    this.pS.deleteParticipants(this.data.id).subscribe({
+      next: (res) => {
+        this.dialogRef.close();
+        window.location.reload();
+      },
+      error: err => {
+        console.log(err)
+      }
+    })
   }
 
 }
