@@ -2,21 +2,17 @@
 
 <div class="container-2">
   <div fxLayout="row wrap" fxLayoutGap="30px">
-    <div fxFlex="50" fxLayout="column" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="70%" class="table-container">
+    <div fxLayout="column" fxFlex.sm="100%" fxFlex.md="100%" fxFlex.lg="70%" class="table-container">
       <br>
-      <div fxFlex fxLayout="row" fxFlex.lg="10%" class="ml-20">
-        <h2 fxFlex fxFlex.lg="94%" fxFlex.md="94%" fxFlex.lt-sm="82%">Participants list</h2>
-        <div fxFlex>
+      <div fxFlex fxLayout="row" fxFlex.lg="10%" fxFlex.sm="100%" class="ml-20">
+        <h2 fxFlex="94">Participants list</h2>
+        <div fxFlex fxFlexAlign="">
           <button mat-icon-button (click)="openDialog()">
             <mat-icon color="primary">person_add</mat-icon>
           </button>
         </div>
       </div>
       <table *ngIf="!loading" mat-table [dataSource]="dataSource">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
         <!-- Position Column -->
         <ng-container matColumnDef="full_name">
           <th mat-header-cell *matHeaderCellDef> Full Name </th>
