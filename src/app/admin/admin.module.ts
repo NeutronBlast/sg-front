@@ -10,8 +10,6 @@ import { DisableParticipantConfirmationComponent } from './dashboard/disable-par
 import { NavigationBarComponent } from './dashboard/navigation-bar/navigation-bar.component';
 import { FooterBarComponent } from './dashboard/footer-bar/footer-bar.component';
 
-
-
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -20,7 +18,7 @@ import { FooterBarComponent } from './dashboard/footer-bar/footer-bar.component'
     DeleteParticipantConfirmationComponent,
     DisableParticipantConfirmationComponent,
     NavigationBarComponent,
-    FooterBarComponent
+    FooterBarComponent,
   ],
   imports: [
     CommonModule,

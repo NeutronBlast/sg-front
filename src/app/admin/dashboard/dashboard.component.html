@@ -57,18 +57,21 @@
       <div fxFlex class="settings" fxFlex.lt-sm="100%" fxFlex.md="100%" fxFlex.lg="25%">
         <div fxLayout="column" fxLayoutAlign="center center">
           <br>
-          <h2>Participants Registered</h2>
+          <h2>Participants Report</h2>
+          <h2 class="sg-mini-report">2</h2>
 
-          <ngx-avatars name="5"
+          <ngx-avatars name="{{participants}}"
+                       bgColor="#FF6E0B"
+                       class="sg-avatar"
                        value="28%"
                        size="150" [round]="true">
           </ngx-avatars>
 
           <br>
 
-          <form fxLayout="column" fxLayoutAlign="center center" fxFill>
+          <form novalidate [formGroup]="participantForm" fxLayout="column" fxLayoutAlign="center center" fxFill>
             <mat-form-field fxFlex class="fill mb-75" appearance="outline">
-              <mat-select>
+              <mat-select formControlName="unit">
                 <mat-option>Unit</mat-option>
                 <mat-option value="days">Days</mat-option>
                 <mat-option value="hours">Hours</mat-option>
@@ -76,16 +79,17 @@
               <mat-hint>Shows participant according to the selected unit of time</mat-hint>
             </mat-form-field>
 
+
             <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-              <input matInput placeholder="Number">
+              <input matInput placeholder="Number" formControlName="number">
             </mat-form-field>
           </form>
 
-          <button mat-flat-button color="primary">Show</button>
+          <button mat-flat-button color="primary" (click)="onSubmit()">Show</button>
           <br><br><br>
 
           <div fxFlex fxFlexAlign="center" class="mt-25-i container-2">
-            <p align="center">Currently showing: Participants registered the last 5 days</p>
+            <p align="center">Currently showing: Participants registered the last {{this.participantForm.value.number}} {{this.participantForm.value.unit}}</p>
           </div>
           <br><br>
         </div>

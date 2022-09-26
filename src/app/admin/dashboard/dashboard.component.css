@@ -8,6 +8,20 @@
     border-radius: 10px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
+
+  .sg-mini-report {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sg-avatar {
+    display: none;
+  }
+
+  .sg-mini-report {
+    color: #FF6E0B;
+  }
 }
 
 

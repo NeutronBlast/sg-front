@@ -10,6 +10,10 @@ export class ParticipationsService {
 
   constructor(private http: HttpClient) { }
 
+  getParticipantsUnitOfTime(data: any): Observable<any> {
+    return this.http.get<any>(environment.apiURL + '/report', data)
+  }
+
   getParticipants(): Observable<any> {
     return this.http.get<any>(environment.apiURL + '/users')
   }
