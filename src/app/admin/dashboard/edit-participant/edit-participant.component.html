@@ -4,34 +4,50 @@
       <img src="assets/img/1200x600.png" width="220">
     </div>
 
-    <form fxLayout="column" fxLayoutAlign="center center" fxFill>
+    <form *ngIf="!loading" fxLayout="column" fxLayoutAlign="center center" fxFill [formGroup]="participantForm">
       <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-        <input matInput placeholder="Email">
+        <input matInput placeholder="Email" formControlName="email">
       </mat-form-field>
 
-      <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-        <input matInput placeholder="First Name">
-      </mat-form-field>
+      <div fxFlex fxFlexAlign="center" class="mt-10-i">
+        <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+      </div>
 
       <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-        <input matInput placeholder="Family Name">
+        <input matInput placeholder="First Name" formControlName="first_name">
       </mat-form-field>
 
+      <div fxFlex fxFlexAlign="center" class="mt-10-i">
+        <mat-error *ngIf="formErrors.first_name">{{formErrors.first_name}}</mat-error>
+      </div>
+
       <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-        <input matInput [matDatepicker]="picker">
+        <input matInput placeholder="Family Name" formControlName="last_name">
+      </mat-form-field>
+
+      <div fxFlex fxFlexAlign="center" class="mt-10-i">
+        <mat-error *ngIf="formErrors.last_name">{{formErrors.last_name}}</mat-error>
+      </div>
+
+      <mat-form-field fxFlex class="fill mb-50" appearance="outline">
+        <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="date_of_birth">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-        <input matInput placeholder="Password" type="password">
+        <input matInput placeholder="Password" type="password" formControlName="password">
       </mat-form-field>
+
+      <div fxFlex fxFlexAlign="center" class="mt-10-i">
+        <mat-error *ngIf="formErrors.password">{{formErrors.password}}</mat-error>
+      </div>
     </form>
   </div>
 
   <div mat-dialog-actions fxLayout="row">
-    <button mat-flat-button mat-dialog-close cdkFocusInitial fxFlex>Submit</button>
+    <button mat-flat-button cdkFocusInitial fxFlex (click)="onSubmit()">Submit</button>
     <button mat-flat-button mat-dialog-close fxFlex>Close</button>
   </div>
   <br>

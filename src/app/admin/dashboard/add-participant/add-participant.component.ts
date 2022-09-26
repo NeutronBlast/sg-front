@@ -3,7 +3,8 @@ import { MatDialogRef } from "@angular/material/dialog";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ParticipationsService } from "../../../core/participations/participations.service";
 import { User } from "../../../core/classes/user";
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-add-participant',
@@ -46,7 +47,8 @@ export class AddParticipantComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<any>,
               private fb: FormBuilder,
               private router: Router,
-              private pS: ParticipationsService) {
+              private pS: ParticipationsService,
+              private snackbar: MatSnackBar) {
     this.createForm();
     this.loading = false;
   }
@@ -86,7 +88,7 @@ export class AddParticipantComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
+          Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/)
         ]
       ],
       date_of_birth: [
@@ -141,7 +143,9 @@ export class AddParticipantComponent implements OnInit {
           window.location.reload();
         },
         error: err => {
-          console.log(err.error.errors.email[0])
+          let errorMessage = err.error.errors.email[0]
+
+          this.snackbar.open(errorMessage, 'Ok');
         }
       })
     }

@@ -30,7 +30,6 @@ export class DashboardComponent implements OnInit {
     this.pS.getParticipants().subscribe((participants) => {
       this.dataSource = participants;
       this.loading = false;
-      console.log(this.dataSource)
     })
   }
 
@@ -43,9 +42,12 @@ export class DashboardComponent implements OnInit {
     })
   }
 
-  openDialogEdit() {
+  openDialogEdit(id: number) {
     this.dialog.open(EditParticipantComponent, {
       width: '600px',
+      data: {
+        id: id
+      }
     })
   }
 

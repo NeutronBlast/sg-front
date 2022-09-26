@@ -13,6 +13,7 @@ import { MatSelectModule } from "@angular/material/select";
 import { MatDialogModule, MatDialogRef } from "@angular/material/dialog";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 const ANGULAR_MATERIAL_MODULES = [
   CommonModule,
@@ -28,7 +29,8 @@ const ANGULAR_MATERIAL_MODULES = [
   MatSelectModule,
   MatDialogModule,
   MatSlideToggleModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
