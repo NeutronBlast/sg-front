@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 import { ParticipationsService } from "./participations/participations.service";
 import {environment} from "../../environments/environment.dev";
+import {LoginService} from "./auth/login.service";
+import {RegisterService} from "./auth/register.service";
 
 
 
@@ -14,6 +16,8 @@ import {environment} from "../../environments/environment.dev";
   ],
   providers: [
     ParticipationsService,
+    LoginService,
+    RegisterService,
     {provide: 'serverURL', useValue: environment.apiURL}
   ]
 })
