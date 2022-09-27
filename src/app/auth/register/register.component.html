@@ -8,6 +8,7 @@
           <div fxFlex>
             <ngx-avatars src="assets/img/filters_no_upscale.png" size="350" [round]="$any(false)"></ngx-avatars>
           </div>
+
           <div fxFlex class="white-text mt-25-i">
             Event management software, services and technology
           </div>
@@ -23,32 +24,43 @@
             <img src="assets/img/1200x600.png" width="220">
           </div>
 
-          <form fxLayout="column" fxLayoutAlign="center center" fxFill>
+          <div dir="ltr" *ngIf="!registerForm.valid && registerForm.dirty">
+            <h5><br *ngIf="formErrors.email">{{formErrors.email}}
+              <br *ngIf="formErrors.first_name">{{formErrors.first_name}}
+              <br *ngIf="formErrors.last_name">{{formErrors.last_name}}
+              <br *ngIf="formErrors.password">
+              {{formErrors.password}}</h5>
+          </div>
+
+          <form fxLayout="column" fxLayoutAlign="center center" fxFill [formGroup]="registerForm">
             <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-              <input matInput placeholder="Email">
+              <input matInput placeholder="Email" formControlName="email">
             </mat-form-field>
 
             <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-              <input matInput placeholder="First Name">
+              <input matInput placeholder="First Name" formControlName="first_name">
             </mat-form-field>
 
             <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-              <input matInput placeholder="Family Name">
+              <input matInput placeholder="Family Name" formControlName="last_name">
             </mat-form-field>
 
             <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-              <input matInput [matDatepicker]="picker">
+              <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="date_of_birth">
               <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
 
-            <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-              <input matInput placeholder="Password" type="password">
+            <mat-form-field fxFlex class="fill mb-100" appearance="outline">
+              <input matInput placeholder="Password" type="password" formControlName="password">
+
+              <mat-hint>Password should contain at least 8 characters, one lowercase letter, one uppercase letter,
+                one number, and one special character</mat-hint>
             </mat-form-field>
           </form>
 
-          <button mat-flat-button color="primary">Sign Up</button>
+          <button mat-flat-button color="primary" (click)="onSubmit()">Sign Up</button>
           <br><br><br>
 
           <div fxFlex fxFlexAlign="center" >
