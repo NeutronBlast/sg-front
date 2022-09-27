@@ -114,11 +114,6 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  .container
-  {
-    width: 750px;
-  }
-
   .panel {
     max-width: 100% !important;
     max-height: 100% !important;
