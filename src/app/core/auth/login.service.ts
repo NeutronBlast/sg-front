@@ -24,11 +24,10 @@ export class LoginService {
         'Content-Type': 'application/json'
       }),
     };
-
-    return this.http.post<any>(environment.apiURL + '/logout', httpOptions)
-
     localStorage.removeItem("token");
-    localStorage.removeItem("expires_at");
+    localStorage.removeItem("role");
+    localStorage.removeItem("id");
+    return this.http.post<any>(environment.apiURL + '/logout', httpOptions)
   }
 
   isLoggedOut() {

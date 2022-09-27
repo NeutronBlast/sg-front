@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { WelcomeComponent } from "../participant/welcome/welcome.component";
+import { ParticipantGuard } from "../core/guards/participant.guard";
 
 export const routes: Routes = [
   {
@@ -12,6 +13,7 @@ export const routes: Routes = [
   },
   {
     path: 'welcome',
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    canActivate: [ParticipantGuard]
   }
 ];

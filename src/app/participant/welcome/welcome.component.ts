@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "../../core/auth/login.service";
-import {Router} from "@angular/router";
+import { LoginService } from "../../core/auth/login.service";
+import { Router } from "@angular/router";
+import {ParticipationsService} from "../../core/participations/participations.service";
 
 @Component({
   selector: 'app-welcome',
@@ -8,9 +9,15 @@ import {Router} from "@angular/router";
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  public status: any;
 
   constructor(private login: LoginService,
-              private router: Router) { }
+              private pS: ParticipationsService,
+              private router: Router) {
+    this.pS.getParticipant(localStorage.getItem("id")).subscribe((res) => {
+      this.status = res.status;
+    })
+  }
 
   ngOnInit(): void {
   }

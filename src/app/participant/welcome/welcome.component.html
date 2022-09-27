@@ -23,8 +23,8 @@
           </div>
 
           <div fxFlex>
-            <h1>Welcome!</h1>
-            <p>
+            <h1 *ngIf="status == 'Active'">Welcome!</h1>
+            <p *ngIf="status == 'Active'">
               You have been logged on as:
               <br><br>
               <b>Email:</b> hyperschnell11@outlook.sk
@@ -32,6 +32,12 @@
               <b>Full Name:</b> Frank Hesse
               <br>
               <b>Date of Birth:</b> 1999-08-01
+              <br><br>
+            </p>
+
+            <h1 *ngIf="status == 'Inactive'">Oops!</h1>
+            <p *ngIf="status == 'Inactive'">
+              Your account has been disabled by an Administrator
               <br><br>
             </p>
           </div>
