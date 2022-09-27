@@ -22,13 +22,13 @@
             <img src="assets/img/1200x600.png" width="220">
           </div>
 
-          <form fxLayout="column" fxLayoutAlign="center center" fxFill>
+          <form [formGroup]="loginForm" fxLayout="column" fxLayoutAlign="center center" fxFill>
             <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-              <input matInput placeholder="Email">
+              <input matInput placeholder="Email" formControlName="email">
             </mat-form-field>
 
             <mat-form-field fxFlex class="fill mb-50" appearance="outline">
-              <input matInput placeholder="Password" type="password">
+              <input matInput placeholder="Password" type="password" formControlName="password">
             </mat-form-field>
           </form>
 
@@ -36,11 +36,11 @@
             <a href="#">Forgot password?</a>
           </div>
 
-          <button mat-flat-button color="primary">Login</button>
+          <button mat-flat-button color="primary" (click)="onSubmit()">Login</button>
           <br><br><br>
 
           <div fxFlex fxFlexAlign="center" >
-            <p>Don't have an account? <a href="#">Register</a></p>
+            <p>Don't have an account? <a routerLink="/auth/register">Register</a></p>
           </div>
           <br><br>
         </div>
